@@ -1,0 +1,20 @@
+version: '3.6'
+services:
+  my-rest-api:
+    image: my-rest-api:latest
+    build:
+      context: ./src/my-rest-api
+    restart: always
+    ports:
+      - "3000:3000"
+  reset-wrapper:
+    image: reset-wrapper:latest
+    build:
+      context: ./src/reset-wrapper
+    restart: always
+    ports:
+      - "4000:4000"
+    depends_on:
+      - "my-rest-api"
+    environment:
+      - REST_ENDPOINT=my-rest-api:3000
