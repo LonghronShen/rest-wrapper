@@ -17,4 +17,4 @@ services:
     depends_on:
       - "my-rest-api"
     environment:
-      - REST_ENDPOINT=my-rest-api:3000
+      - REST_ENDPOINT=http://my-rest-api:3000
