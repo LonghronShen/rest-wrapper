@@ -1,3 +1,5 @@
+/*jshint esversion: 8 */
+
 const express = require('express');
 const bodyParser = require("body-parser");
 const uuidv4 = require('uuid/v4');
@@ -42,4 +44,4 @@ app.post('/users', (req, res) => {
     }
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, '0.0.0.0', () => console.log(`Example app listening on port ${port}!`));

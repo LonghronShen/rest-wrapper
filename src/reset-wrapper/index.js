@@ -1,3 +1,5 @@
+/*jshint esversion: 8 */
+
 const { ApolloServer } = require('apollo-server');
 const gql = require('graphql-tag');
 const { getData, postData } = require('./helpers');
@@ -46,7 +48,7 @@ const resolvers = {
 
 const schema = new ApolloServer({ typeDefs, resolvers });
 
-schema.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
+schema.listen({ port: process.env.PORT || 4000, hostname: '0.0.0.0' }).then(({ url }) => {
   console.log(`schema ready at ${url}`);
 });
 
